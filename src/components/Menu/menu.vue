@@ -15,7 +15,7 @@
 <script>
 import $ from "jquery"
 export default {
-  name: "",
+  name: "c0",
   data() {
     return {
       msg: "这是一个menu！！！！！"

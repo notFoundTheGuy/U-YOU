@@ -1,5 +1,5 @@
 build/*.js
 config/*.js
 src/assets/js/*.js
-src/*.js
+src/*
 src/components/Menu/menu.vue

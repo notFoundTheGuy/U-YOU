@@ -1,19 +1,11 @@
 <template>
-  <div>
+  <div class="header " id="header">
     <div class="nav-content">
       <div class="user" id='user'>
-        <p id="tra" class="tra"></p>
-          <div class="user-block" id="user-block">
-            <ul>
-              <li>我的消息</li>
-              <li>个人中心</li>
-              <li>注销登录</li>
-            </ul>
-          </div>
           <i class="fa fa-user-circle user-icon" style="font-size:22px;color:#b8d3ca"></i>
       </div>
-      <span> <i class="fa fa-search search-icon" style="font-size:16px;color:#a7ab86"></i></span>
-      <input type="text" class="search-input">  
+      <span> <i class="fa fa-search search-icon" id="search" style="font-size:16px;color:#a7ab86"></i></span>
+      <div><input type="text" class="search-input">  </div>
       <ul class="nav-bar">
          <li class="item">关于我们</li>
          <li class="item">网址导航</li>
@@ -31,12 +23,13 @@ export default {
   name: '',
   data () {
     return {
-      msg: '这是一个HEADER！！！！！'
+      
     }
   }
 }
 
 $(document).ready(function () {
+  //用户详情弹出
   $('#user').mouseenter(function () {
     $('#user-block').css({
       'height': '150px'
@@ -44,12 +37,30 @@ $(document).ready(function () {
     $('#user-block ul').fadeIn()
     $('#tra').css('opacity', '1')
   })
+  //用户详情闭合
   $('#user').mouseleave(function () {
     $('#user-block').css({
       'height': '0px'
     })
     $('#user-block ul').fadeOut()
     $('#tra').css('opacity', '0')
+  })
+  // 滚轮滚动事件
+  $(window).scroll(function (e) {
+    console.log($(document).scrollTop());
+    if ($(document).scrollTop() >= 400) {
+      $('#header').addClass('headerScroll');
+    }else {
+      $('#header').removeClass('headerScroll');
+    }
+  })
+   //搜索框弹出
+  $('#search').mouseenter(function () {
+    // $('.nav-bar').addClass('search-input-show');
+  })
+  //搜索框隐藏
+  $('.search-input,#search').mouseleave(function () {
+    // $('.nav-bar').removeClass('search-input-show');
   })
 })
 </script>
@@ -68,6 +79,16 @@ ul {
   width: 100%;
   background: #fff;
   display: table;
+  box-shadow: 0px 6px 10px rgba(174, 172, 172, 0.9);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  transition: all 0.5s;
+}
+.headerScroll {
+  height: 50px;
+  box-shadow: 0px 6px 10px rgba(174, 172, 172, 0.3);
+  background: #faf9f9;
 }
 .nav-content{
   display: table-cell;
@@ -75,20 +96,27 @@ ul {
   padding-right: 5%;
 }
 .nav-content .nav-bar{
-  float: right;
-  margin-right: 20px;
+    padding-right: 50px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: row-reverse;
+    /* position: relative; */
+    /* left: 150px; */
+    transition: all 0.5s;
 }
 .nav-content .nav-bar li {
-  float: right;
-  width: 100px;
-  -webkit-transition: transform 0.3s;
-  -moz-transition: transform 0.3s;
-  transition: transform 0.3s;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transition: all 0.1s; */
+    border-bottom: 5px solid rgba(104, 104, 243,0);
 }
 .nav-content .nav-bar li:hover {
-  color:#b35e59;
-  transform:scale(1.1);
-  transform:translateY(-2px);
+  border-bottom: 5px solid rgb(104, 104, 243);
+  /* transition: all 0.1s; */
   cursor: pointer;
 }
 .nav-content .user {
@@ -110,14 +138,25 @@ ul {
 }
 .nav-content :nth-child(2),.nav-content :nth-child(3),.nav-content :nth-child(1){
   float: right;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav-content .search-input {
   border: none;
   padding-left: 8px;
   padding-bottom: 2px;
-  border-bottom: 1px solid gray;
   outline: none;
+  background: none;
+  height: 40%;
+  transition: all 0.4s;
+  border-bottom: 1px solid gray !important;
+  /* width: 0; */
+}
+.search-input-show {
+  position: relative;
+  left:0 !important;
 }
 .nav-content .search-icon {
   position: relative;

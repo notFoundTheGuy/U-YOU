@@ -1,43 +1,12 @@
 <template>
   <section id="app">
-    <v-header class="header"></v-header>
+    <v-header></v-header>
     <v-menu></v-menu>
     <section class="center">
       <article class="carousel-box">
-        <div id="myCarousel" class="carousel slide">
-          <!-- 轮播图控制-指标 -->
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-          </ol>
-          <!-- 轮播内容 -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <div class="carousel-caption">标题 1</div>
-              <img src="./assets/img/car.jpg" alt="car">
-            </div>
-            <div class="item">
-              <div class="carousel-caption">标题 2</div>
-              <img src="./assets/img/vicky.jpg" alt="vicky">
-            </div>
-            <div class="item">
-              <div class="carousel-caption">标题 3</div>
-              <img src="./assets/img/road.jpg" alt="car">
-            </div>
-            <div class="item">
-              <div class="carousel-caption">标题 4</div>
-              <img src="./assets/img/colorful.jpg" alt="car">
-            </div>
-            <!-- 轮播图控制 -导航-->
-            <!-- <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    	        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> -->
-          </div>
-        </div>
-        <!-- <div class="list"></div> -->
+        <v-carousel>阿斯顿</v-carousel>
       </article>
-      <v-part class="part1" ></v-part>
+      <v-part class="part1" bgcolor="#b35e59" activity="猜你喜欢"></v-part>
       <v-part class="part2" bgcolor="#8a7e94" activity="看电影"></v-part>
       <v-part class="part3" bgcolor="#d4bb9c" activity="找美味"></v-part>
       <v-part class="part4" bgcolor="#f1c4be" activity="逛商场"></v-part>
@@ -56,6 +25,8 @@
   import header from './components/header/header'
   import footer from './components/footer/footer'
   import part from './components/part/part.vue'
+  import carousel from './components/carousel/carousel.vue'
+  import elheader from './components/el-header/el-header.vue'
   
   export default {
     name: 'app',
@@ -63,7 +34,9 @@
       'v-header': header,
       'v-footer': footer,
       'v-part': part,
-      'v-menu': menu
+      'v-menu': menu,
+      'v-carousel': carousel,
+      'v-elheader':elheader
     }
   }
   $(document).ready(function () {
@@ -104,13 +77,6 @@
     background-size: auto 500px;
   }
   
-  .header {
-    box-shadow: 0px 6px 10px rgba(174, 172, 172, 0.9);
-    position: fixed;
-    z-index: 999;
-    top: 0;
-  }
-    
   .center {
     height: 300px;
   }
