@@ -21,7 +21,6 @@
          <li class="item">首页</li>
        </ul>
     </div>
-    <div class="location"></div>
     
   </div>
 </template>
@@ -29,7 +28,7 @@
 <script>
 import $ from 'jquery'
 export default {
-  name: 'c0',
+  name: '',
   data () {
     return {
       msg: '这是一个HEADER！！！！！'

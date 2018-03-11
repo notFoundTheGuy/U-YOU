@@ -2,3 +2,4 @@ build/*.js
 config/*.js
 src/assets/js/*.js
 src/*.js
+src/components/Menu/menu.vue

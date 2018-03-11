@@ -1,6 +1,7 @@
 <template>
   <section id="app">
     <v-header class="header"></v-header>
+    <v-menu></v-menu>
     <section class="center">
       <article class="carousel-box">
         <div id="myCarousel" class="carousel slide">
@@ -36,7 +37,7 @@
         </div>
         <!-- <div class="list"></div> -->
       </article>
-      <v-part class="part1" bgcolor="#b35e59" activity="猜你喜欢"></v-part>
+      <v-part class="part1" ></v-part>
       <v-part class="part2" bgcolor="#8a7e94" activity="看电影"></v-part>
       <v-part class="part3" bgcolor="#d4bb9c" activity="找美味"></v-part>
       <v-part class="part4" bgcolor="#f1c4be" activity="逛商场"></v-part>
@@ -51,6 +52,7 @@
 
 <script>
   import $ from 'jquery'
+  import menu from './components/menu/menu.vue'
   import header from './components/header/header'
   import footer from './components/footer/footer'
   import part from './components/part/part.vue'
@@ -60,7 +62,8 @@
     components: {
       'v-header': header,
       'v-footer': footer,
-      'v-part': part
+      'v-part': part,
+      'v-menu': menu
     }
   }
   $(document).ready(function () {

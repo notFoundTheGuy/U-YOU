@@ -11,8 +11,8 @@ export default {
   props: ['bgcolor', 'activity'],
   data () {
     return {
-      bgcolor: '#b35e59',  // 控制头部的颜色
-      activity: '看电影'
+      // dColor: '#b35e59',  // 控制头部的颜色
+      // dActivity: '看电影'
     }
   },
   methods: {
