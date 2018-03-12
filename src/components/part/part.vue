@@ -30,7 +30,6 @@ export default {
 }
 .part {
   margin: 60px auto;
-  width: 70%;
   border-radius: 10px;
   overflow: hidden;
 }

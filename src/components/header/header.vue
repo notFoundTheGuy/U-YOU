@@ -7,10 +7,10 @@
       <span> <i class="fa fa-search search-icon" id="search" style="font-size:16px;color:#a7ab86"></i></span>
       <div><input type="text" class="search-input">  </div>
       <ul class="nav-bar">
-         <li class="item">关于我们</li>
-         <li class="item">网址导航</li>
-         <li class="item">地图</li>
-         <li class="item">首页</li>
+        <router-link to='/aboutUs'><li class="item">关于我们</li></router-link>
+        <li class="item">待定。。。</li>
+        <router-link to='/map'><li class="item">地图</li></router-link>
+        <router-link to='/'><li class="item">首页</li></router-link>
        </ul>
     </div>
     
@@ -47,7 +47,6 @@ $(document).ready(function () {
   })
   // 滚轮滚动事件
   $(window).scroll(function (e) {
-    console.log($(document).scrollTop());
     if ($(document).scrollTop() >= 400) {
       $('#header').addClass('headerScroll');
     }else {
@@ -73,6 +72,10 @@ $(document).ready(function () {
 }
 ul {
   list-style: none;
+}
+ul a {
+  height: 100%;
+  text-decoration: none;
 }
 .header{
   height: 70px; /*控制header的高度*/
@@ -111,12 +114,12 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* transition: all 0.1s; */
     border-bottom: 5px solid rgba(104, 104, 243,0);
+    transition: all 0.3s;
 }
 .nav-content .nav-bar li:hover {
   border-bottom: 5px solid rgb(104, 104, 243);
-  /* transition: all 0.1s; */
+  transform: translateY(3px);
   cursor: pointer;
 }
 .nav-content .user {
